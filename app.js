@@ -42,5 +42,28 @@ const zShape = [
     [width,width+1,width+2,width+3]
   ]
 
+  const tettrisShape = [lShape, zShape, tShape, oShape, iShape]
+
+  let currentPosition = 4
+  let current = tettrisShape[0][0]
+
+  //draw rotations
+  function draw(){
+    current.forEach(index =>{
+        squares[currentPosition + index].classList.add('tShape')
+    })
+  }
+  draw()
+
+
+
+
+
+
+
+
+
+
+
 })
 
