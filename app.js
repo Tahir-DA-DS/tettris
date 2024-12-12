@@ -45,7 +45,10 @@ const zShape = [
   const tettrisShape = [lShape, zShape, tShape, oShape, iShape]
 
   let currentPosition = 4
-  let current = tettrisShape[0][0]
+  let currentRotation = 0
+  //random tshape selection
+  let random = Math.floor(Math.random()*tettrisShape.length)
+  let current = tettrisShape[random][currentRotation]
 
   //draw rotations
   function draw(){
@@ -53,11 +56,50 @@ const zShape = [
         squares[currentPosition + index].classList.add('tShape')
     })
   }
-  draw()
+  
+  //undraw
+  function undraw(){
+    current.forEach(index =>{
+        squares[currentPosition + index].classList.remove('tShape')
+    })
+  }
+
+  //move shape down every sec
+
+  let timerId = setInterval(moveDown, 1000);
+
+  function moveDown (){
+    undraw()
+    currentPosition += width
+    draw()
+    freeze()
+  }
 
 
+// freeze function
 
+function freeze (){
+    if(current.some(index=>squares[currentPosition + index + width].classList.contains('taken'))){
+        current.forEach(index=>squares[currentPosition + index].classList.add('taken'))
+        random = Math.floor(Math.random()*tettrisShape.length)
+        current = tettrisShape[random][currentRotation]
+        currentPosition = 4
+        draw()
+    }
 
+}
+
+//left movement
+function moveLeft(){
+    undraw()
+    const isAtLeftEdge = current.some(index=>(currentPosition + index) % width === 0)
+
+    if(!isAtLeftEdge) currentPosition -=1
+    if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+      currentPosition +=1
+    }
+    draw()
+}
 
 
 
