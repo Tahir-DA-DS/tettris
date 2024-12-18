@@ -1,6 +1,6 @@
 canvas {
     border: 1px solid black;
-    /* display: block; */
+    display: block;
     margin: 20px auto;
     background-color: #f4f4f4;
   }
@@ -13,7 +13,10 @@ canvas {
     margin: 10px 
     auto;
   }
-
+#side-canva{
+    width: 200px;
+    background-color: rgb(129, 124, 124);
+}
   .container{
     display: flex;
   }

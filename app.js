@@ -99,10 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return newShape.some((block) => {
       const x = (block % width) + posX;
       const y = Math.floor(block / width) + posY;
-      return x < 0 || x >= width || y >= height || grid[y]?.[x];
+  
+      // Check boundaries and grid occupancy
+      return x < 0 || x >= width || y >= height || (y >= 0 && grid[y][x]);
     });
   }
-
   // Move shape down
   function moveDown() {
     if (!collision(currentShape, currentPosition.x, currentPosition.y + 1)) {
