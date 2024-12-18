@@ -1,33 +1,19 @@
-.container{
+canvas {
+    border: 1px solid black;
+    /* display: block; */
+    margin: 20px auto;
+    background-color: #f4f4f4;
+  }
+  #score {
+    text-align: center;
+    font-size: 20px;
+  }
+  button {
+    display: block;
+    margin: 10px 
+    auto;
+  }
+
+  .container{
     display: flex;
-}
-.grid{
-    width: 200px;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: yellow;
-}
-
-.grid div{
-    height: 20px;
-    width: 20px;
-}
-
-.tShape {
-    background-color: blue;
-}
-
-.mini-grid{
-    margin-left: 50px;
-    height: 80px;
-    width: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: yellow;
-}
-
-.mini-grid div{
-    height: 20px;
-    width: 20px;
-}
+  }
